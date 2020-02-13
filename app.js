@@ -21,8 +21,7 @@ const app = express()
 const port = 3000
 
 // bring in models
-let Article = require( './models/article' )
-// import Article from './models/article'
+import { Article } from './models/article'
 
 // load view engine
 app.set( 'views', path.join( __dirname, 'views' ) )
