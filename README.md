@@ -1,2 +1,2 @@
 # nodekb
-Node &amp; Express chat app with mongoDB
+Node &amp; Express knowledgebase app with mongoDB

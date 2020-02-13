@@ -1,0 +1,26 @@
+{
+  "name": "nodekb",
+  "version": "1.0.0",
+  "description": "Simple knowledgebase app",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -r esm app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darylbacon/nodekb.git"
+  },
+  "author": "Daryl Bacon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darylbacon/nodekb/issues"
+  },
+  "homepage": "https://github.com/darylbacon/nodekb#readme",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
