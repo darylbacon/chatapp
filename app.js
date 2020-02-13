@@ -1,8 +1,7 @@
 // import packages
 import express from 'express'
-import path from 'path'
+import expressLayouts from 'express-ejs-layouts'
 import mongoose from 'mongoose'
-import bodyParser from 'body-parser'
 
 // bring in models
 import { Article } from './models/article'
@@ -24,17 +23,14 @@ db.on( 'error', ( err ) => {
 })
 
 // load view engine
-app.set( 'views', path.join( __dirname, 'views' ) )
-app.set( 'view engine', 'pug' )
+app.set( 'view engine', 'ejs' )
+app.use(expressLayouts)
 
-// body parser middleware
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
-app.use(bodyParser.json())
+// Bodyparser
+app.use(express.urlencoded({ extended: false }))
 
-// set public folder
-app.use( express.static( path.join( __dirname, 'public' )))
+// Public folder
+app.use(express.static(__dirname + '/public'));
 
 // home route
 app.get( '/', ( req, res ) => {
@@ -51,14 +47,14 @@ app.get( '/', ( req, res ) => {
 })
 
 // add route 
-app.get( '/articles/add', ( req, res ) => {
+app.get( '/article/add', ( req, res ) => {
   res.render( 'add_article', {
     title: 'Add Article'
   })
 })
 
 // add submit post route
-app.post( '/articles/add', ( req, res ) => {
+app.post( '/article/add', ( req, res ) => {
   // article.title = req.body.title
   // article.author = req.body.author
   // article.body = req.body.body

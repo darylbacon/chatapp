@@ -4,7 +4,8 @@
   "description": "Simple knowledgebase app",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -r esm app"
+    "start": "nodemon -r esm app",
+    "dev": "nodemon -r esm app"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,11 @@
   "homepage": "https://github.com/darylbacon/nodekb#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "mongoose": "^5.8.12",
-    "pug": "^2.0.4"
+    "express-ejs-layouts": "^2.5.0",
+    "mongoose": "^5.8.12"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
