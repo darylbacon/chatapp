@@ -19,6 +19,7 @@
   "dependencies": {
     "esm": "^3.2.25",
     "express": "^4.17.1",
+    "mongoose": "^5.8.12",
     "pug": "^2.0.4"
   },
   "devDependencies": {
