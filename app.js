@@ -2,6 +2,7 @@
 import express from 'express'
 import path from 'path'
 import mongoose from 'mongoose'
+import bodyParser from 'body-parser'
 
 // bring in models
 import { Article } from './models/article'
@@ -26,6 +27,12 @@ db.on( 'error', ( err ) => {
 app.set( 'views', path.join( __dirname, 'views' ) )
 app.set( 'view engine', 'pug' )
 
+// body parser middleware
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
 // home route
 app.get( '/', ( req, res ) => {
   Article.find( {}, ( err, articles) => {
@@ -45,6 +52,22 @@ app.get( '/articles/add', ( req, res ) => {
   res.render( 'add_article', {
     title: 'Add Article'
   })
+})
+
+// add submit post route
+app.post( '/articles/add', ( req, res ) => {
+  let article = new Article()
+  article.title = req.body.title
+  article.author = req.body.author
+  article.body = req.body.body
+
+  article.save( ( err ) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.redirect('/')
+    }
+  } )
 })
 
 const port = 3000
