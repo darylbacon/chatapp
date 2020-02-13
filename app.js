@@ -33,6 +33,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// set public folder
+app.use( express.static( path.join( __dirname, 'public' )))
+
 // home route
 app.get( '/', ( req, res ) => {
   Article.find( {}, ( err, articles) => {
@@ -56,10 +59,15 @@ app.get( '/articles/add', ( req, res ) => {
 
 // add submit post route
 app.post( '/articles/add', ( req, res ) => {
-  let article = new Article()
-  article.title = req.body.title
-  article.author = req.body.author
-  article.body = req.body.body
+  // article.title = req.body.title
+  // article.author = req.body.author
+  // article.body = req.body.body
+  let { title, author, body } = req.body
+  let article = new Article({
+    'title': title,
+    'author': author,
+    'body': body
+  })
 
   article.save( ( err ) => {
     if (err) {
