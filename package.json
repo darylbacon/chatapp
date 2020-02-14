@@ -4,8 +4,9 @@
   "description": "Simple knowledgebase app",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -r esm app",
-    "dev": "nodemon -r esm app"
+    "start": "node -r esm app",
+    "dev": "nodemon -r esm app",
+    "minify-css": "postcss src/css/main.css > src/css/main.min.css"
   },
   "repository": {
     "type": "git",
@@ -18,12 +19,26 @@
   },
   "homepage": "https://github.com/darylbacon/nodekb#readme",
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
     "body-parser": "^1.19.0",
+    "browser-sync": "^2.26.3",
+    "browserify": "^16.2.0",
     "ejs": "^3.0.1",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
-    "mongoose": "^5.8.12"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^1.12.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11",
+    "mongoose": "^5.8.12",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
