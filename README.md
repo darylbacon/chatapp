@@ -1,4 +1,10 @@
 # nodekb
-Node &amp; Express knowledgebase app with mongoDB
 
-EJS template engine for the views
+## Node Knowledgebase app
+
+### Stack
+- Node
+- ExpressJS
+- MongoDB
+- EJS (Embedded JavaScript Templates)
+- Bootstrap
