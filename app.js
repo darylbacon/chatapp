@@ -74,6 +74,15 @@ app.post( '/article/add', ( req, res ) => {
   } )
 })
 
+// Get single article
+app.get( '/article/:id', ( req, res) => {
+  Article.findById( req.params.id, ( err, article ) => {
+    res.render( 'article', {
+      article
+    })
+  })
+})
+
 const port = 5000
 
 // Start server

@@ -1,6 +1,6 @@
 <h1><%= title %></h1>
-<ul>
+<ul class="list-group">
   <% articles.forEach(( article ) => { %>
-    <li><%= article.title %></li>
+    <li class="list-group-item"><a href="/article/<%= article.id %>"><%= article.title %></a></li>
   <% }) %>
 </ul>
