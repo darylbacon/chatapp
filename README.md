@@ -1,8 +1,6 @@
-# nodekb
+# Node Knowledgebase app
 
-## Node Knowledgebase app
-
-### Stack
+## Stack
 - Node
 - ExpressJS
 - MongoDB
