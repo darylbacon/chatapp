@@ -3,13 +3,16 @@ import express from 'express'
 import expressLayouts from 'express-ejs-layouts'
 import mongoose from 'mongoose'
 
+// import configs
+import dbConnect from './config/db'
+
 // bring in models
 import { Article } from './models/article'
 
 // init app
 const app = express()
 
-mongoose.connect( 'mongodb://localhost/nodekb' )
+mongoose.connect( dbConnect )
 let db = mongoose.connection
 
 // check connection
