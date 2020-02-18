@@ -1,3 +1,6 @@
 <h1><%= article.title %></h1>
 <h5>Written by <%= article.author %></h5>
-<p><%=article.body %></p>
+<p><%= article.body %></p>
+<hr>
+<a href="/article/edit/<%= article.id %>" class="btn btn-primary">Edit</a>
+<button class="btn btn-danger" delete-article="<%= article.id %>">Delete</button>

@@ -49,7 +49,7 @@ app.get( '/', ( req, res ) => {
   })
 })
 
-// add route 
+// add route
 app.get( '/article/add', ( req, res ) => {
   res.render( 'add_article', {
     title: 'Add Article'
@@ -83,6 +83,46 @@ app.get( '/article/:id', ( req, res) => {
     res.render( 'article', {
       article
     })
+  })
+})
+
+// Edit article
+app.get( '/article/edit/:id', ( req, res) => {
+  Article.findById( req.params.id, ( err, article ) => {
+    res.render( 'edit_article', {
+      article
+    })
+  })
+})
+
+// add submit form edit
+app.post( '/article/edit/:id', ( req, res ) => {
+  let article = {}
+  article.title = req.body.title
+  article.author = req.body.author
+  article.body = req.body.body
+
+  let query = {_id: req.params.id}
+
+  Article.update( query, article, ( err ) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.redirect('/')
+    }
+  })
+})
+
+// Delete article
+app.delete( '/article/:id', ( req, res ) => {
+  let query = {_id: req.params.id}
+
+  Article.deleteOne( query, ( err ) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send('success')
+    }
   })
 })
 
