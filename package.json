@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/darylbacon/nodekb#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.1",
     "babelify": "^8.0.0",
